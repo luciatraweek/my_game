@@ -2,11 +2,15 @@ require 'rubygems'
 require 'gosu'
 require 'player'
 require 'ball'
-
+require 'jellyfish'
 class MyGame < Gosu::Window
   def initialize
-    super(600, 600, false)
+    super(700, 700, false)
     @player1 = Player.new(self)
+
+
+    @jellys = []
+    @jellys<<Jellyfish.new(self)
     @balls = 4.times.map {Ball.new(self)}
     @running = true
     @counter = 0
@@ -36,12 +40,22 @@ class MyGame < Gosu::Window
       end
     
       @balls.each {|ball| ball.update}
+      @jellys.each {|jelly| jelly.update}
     
       if @player1.hit_by? @balls
         if @counter == @lives
           stop_game!
         else 
           @counter = @counter + 1
+          restart_game
+        
+        end    
+      end
+      
+      if @player1.hit_by_jellyfish? @jellys
+        if 
+          @lives = @lives + 1
+          @score = @score + 100
           restart_game
         
         end    
@@ -60,6 +74,7 @@ class MyGame < Gosu::Window
     @background.draw(0,0,1)
     @player1.draw
     @balls.each {|ball| ball.draw}
+    @jellys.each {|jelly| jelly.draw}
   end
   def stop_game!
     @running = false

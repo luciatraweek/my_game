@@ -48,4 +48,10 @@ class Player
   
   end
   
+  def hit_by_jellyfish?(jellys)
+    jellys.any? {|jelly| Gosu::distance(@x, @y, jelly.x, jelly.y)< 100 }
+  
+  end
+  
+  
 end

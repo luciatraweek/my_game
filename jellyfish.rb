@@ -1,8 +1,8 @@
-class Ball
+class Jellyfish
   def initialize(game_window)
     @game_window = game_window
-    @icon = Gosu::Image.new(@game_window, "images/shark.png", true)
-    @speed = rand(17) + 1
+    @icon = Gosu::Image.new(@game_window, "images/jellyfish.png", true)
+    @speed = rand(20) + 1
     reset!
   end
   
