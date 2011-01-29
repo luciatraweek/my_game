@@ -11,7 +11,7 @@ class MyGame < Gosu::Window
     @running = true
     @counter = 0
     @lives = 3
-    @background= Gosu::Image.new(self,"images/dungeon.png", true)
+    @background= Gosu::Image.new(self,"images/ocean.png", true)
     @score = 0
     @font = Gosu::Font.new(self, Gosu::default_font_name, 30)
   end

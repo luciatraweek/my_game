@@ -1,7 +1,7 @@
 class Ball
   def initialize(game_window)
     @game_window = game_window
-    @icon = Gosu::Image.new(@game_window, "images/scary_smiley.png", true)
+    @icon = Gosu::Image.new(@game_window, "images/shark.png", true)
     @speed = rand(20)
     reset!
   end

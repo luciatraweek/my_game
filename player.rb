@@ -2,8 +2,8 @@ class Player
   
   def initialize(game_window)
     @game_window = game_window
-    @icon = Gosu::Image.new(@game_window, "images/player1.png", true)
-    @x = 50
+    @icon = Gosu::Image.new(@game_window, "images/scuba.png", true)
+    @x = 50                                          
     @y = 50
   end
   
@@ -44,7 +44,7 @@ class Player
   end
   
   def hit_by?(balls)
-    balls.any? {|ball| Gosu::distance(@x, @y, ball.x, ball.y)< 50 }
+    balls.any? {|ball| Gosu::distance(@x, @y, ball.x, ball.y)< 100 }
   
   end
   
