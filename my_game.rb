@@ -5,17 +5,17 @@ require 'ball'
 require 'jellyfish'
 class MyGame < Gosu::Window
   def initialize
-    super(700, 700, false)
+    super(900, 900, false)
     @player1 = Player.new(self)
 
 
     @jellys = []
     @jellys<<Jellyfish.new(self)
-    @balls = 4.times.map {Ball.new(self)}
+    @balls = 3.times.map {Ball.new(self)}
     @running = true
     @counter = 0
     @lives = 3
-    @background= Gosu::Image.new(self,"images/ocean.png", true)
+    @background= Gosu::Image.new(self,"images/coral.png", true)
     @score = 0
     @font = Gosu::Font.new(self, Gosu::default_font_name, 30)
   end
@@ -68,7 +68,7 @@ class MyGame < Gosu::Window
   end
   
   def draw
-    @font.draw("The score is #{@score} and lives remaining #{@lives-@counter} ", 20,20,5)
+    @font.draw("YOUR SCORE IS: #{@score} YOU HAVE THIS MANY LIVES: #{@lives-@counter} ", 20,20,5)
     @background.draw(0,0,1)
     @player1.draw
     @balls.each {|ball| ball.draw}
