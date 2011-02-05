@@ -54,23 +54,21 @@ class MyGame < Gosu::Window
       
       if @player1.hit_by_jellyfish? @jellys
         if 
-          @lives = @lives + 1
-          @score = @score + 100
-          restart_game
-        
+          @score = @score + 100  
         end    
       end
       
     else
       if button_down? Gosu::Button::KbEscape
         @counter = 0
+        @score = 0
         restart_game
       end
     end
   end
   
   def draw
-    @font.draw("The score is #{@score}", 20,20,5)
+    @font.draw("The score is #{@score} and lives remaining #{@lives-@counter} ", 20,20,5)
     @background.draw(0,0,1)
     @player1.draw
     @balls.each {|ball| ball.draw}
@@ -83,7 +81,6 @@ class MyGame < Gosu::Window
   def restart_game
     @running = true
     @balls.each {|ball| ball.reset!}
-    
   end
 end
 
